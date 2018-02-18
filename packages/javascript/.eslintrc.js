@@ -12,14 +12,15 @@ module.exports = {
   ],
   extends: ['airbnb-base', 'plugin:unicorn/recommended'],
   rules: {
-    strict: 'off',
-    'no-unused-vars': ['warn', { ignoreRestSiblings: false }],
-    semi: ['error', 'never'],
+    'strict': 'off',
+    'no-var': 'error',
+    'no-unused-vars': ['error', { ignoreRestSiblings: false }],
+    'semi': ['error', 'never'],
     'no-confusing-arrow': 'off',
     'object-property-newline': 'off',
 
     'object-curly-newline': 'off',
-    'object-curly-spacing': 'off',
+    'object-curly-spacing': 'error',
 
     'arrow-parens': ['warn', 'always'],
 
@@ -28,11 +29,11 @@ module.exports = {
       onlyDeclarations: true,
     }],
 
-    'no-magic-numbers': ['warn', {
+    'no-magic-numbers': ['error', {
       ignore: [1, 0, -1],
       ignoreArrayIndexes: true,
       enforceConst: true,
-      detectObjects: false,
+      detectObjects: true,
     }],
 
     'comma-dangle': ['error', {
@@ -46,12 +47,13 @@ module.exports = {
       overrides: {
         '?': 'before',
         ':': 'before',
-        '&&': 'before',
-        '+': 'before',
-        '||': 'before',
-      } },
-    ],
+        '&&': 'after',
+        '+': 'after',
+        '||': 'after',
+      },
+    }],
     'brace-style': ['error', 'stroustrup'],
+    'quotes': ['error', 'backtick'],
     'quote-props': ['error', 'as-needed'],
     'no-plusplus': 'off',
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
@@ -63,7 +65,7 @@ module.exports = {
       { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
     ],
 
-    'no-await-in-loop': 'off',
+    'no-await-in-loop': 'error',
     'no-restricted-syntax': 'off',
 
     'import/no-unresolved': 'off',
@@ -84,9 +86,9 @@ module.exports = {
       'newlines-between': 'ignore',
     }],
 
-    'import/newline-after-import': ['warn', { count: 2 }],
-    'import/prefer-default-export': 'off',
-    'import/no-named-as-default': 'off',
+    'import/newline-after-import': ['error', { count: 1 }],
+    'import/prefer-default-export': 'warn',
+    'import/no-named-as-default': 'error',
 
     'unicorn/catch-error-name': ['error', { name: 'error' }],
     'unicorn/no-fn-reference-in-iterator': 'off',
